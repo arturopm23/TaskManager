@@ -11,8 +11,9 @@
  */
 $routes = array(
 	'/test' => 'test#index',
-	'/home' => 'task#index',
-	'/newTask' => 'task#add',
-	'/updateTask' => 'task#update',
-	'/infoTask' => 'task#info'
+	'/home' => 'application#index',
+	'/newTask' => 'application#add',
+	'/updateTask' => 'application#update',
+	'/infoTask' => 'application#info',
+	'/removeTask' => 'application#remove',
 );
