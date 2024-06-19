@@ -3,76 +3,76 @@ class Task extends Model {
     private int $id;
     private string $title;
     private string $description;
-    private string $estado; //Podria hacer un enum, no prometo nada
-    private int $idUsuario;
-    private string $fechaInicio; //por ahora se queda en string, veremos luego
-    private string $fechaFinal;
+    private string $status; //Podria hacer un enum, no prometo nada
+    private int $idUser;
+    private string $startDate; //por ahora se queda en string, veremos luego
+    private string $endDate;
 
 
-    private function __construct(int $id, string $title, string $description, string $estado, int $idUsuario, string $fechaInicio, string $fechaFinal) {
+    private function __construct(int $id, string $title, string $description, string $status, int $idUser, string $startDate, string $endDate) {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;
-        $this->estado = $estado;
-        $this->idUsuario = $idUsuario;
-        $this->fechaInicio = $fechaInicio;
-        $this->fechaFinal = $fechaFinal;
+        $this->status = $status;
+        $this->idUser = $idUser;
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
     }
 
     private function getId() : int {
-        return $this->$id;
+        return $this->id;
     }
 
     private function getTitle() : string {
-        return $this->$title;
+        return $this->title;
     }
 
     private function getDescription() : string {
-        return $this->$description;
+        return $this->description;
     }
 
-    private function getEstado() : string {
-        return $this->$estado;
+    private function getSatus() : string {
+        return $this->status;
     }
 
-    private function getIdUsuario() : int {
-        return $this->$idUsuario;
+    private function getIdUser() : int {
+        return $this->idUser;
     }
 
-    private function getFechaInicio() : string {
-        return $this->$fechaInicio;
+    private function getStartdate() : string {
+        return $this->startDate;
     }
 
-    private function getFechaFinal() : string {
-        return $this->$fechaFinal;
+    private function getEndDate() : string {
+        return $this->endDate;
     }
 
     private function setId(int $id) : void {
-        $this->$id = $id;
+        $this->id = $id;
     }
 
     private function setTitle(string $title) : void {
-        $this->$title = $title;
+        $this->title = $title;
     }
 
     private function setDescription(string $description) : void {
-        $this->$description = $description;
+        $this->description = $description;
     }
 
-    private function setEstado(string $estado) : void {
-        $this->$estado = $estado;
+    private function setStatus(string $status) : void {
+        $this->status = $status;
     }
 
-    private function setIdUsuario(int $idUsuario) : void {
-        $this->$idUsuario = $idUsuario;
+    private function setIdUser(int $idUser) : void {
+        $this->idUser = $idUser;
     }
 
-    private function setFechaInicio(string $fechaInicio) : void {
-        $this->$fechaInicio;
+    private function setFechaInicio(string $startDate) : void {
+        $this->startDate = $startDate;
     }
 
-    private function setFechaFinal(string $fechaFinal) : void {
-        $this->$fechaFinal;
+    private function setFechaFinal(string $endDate) : void {
+        $this->endDate = $endDate;
     }
 }
 ?>
