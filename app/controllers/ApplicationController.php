@@ -6,10 +6,13 @@
  */
 class ApplicationController extends Controller 
 {
+
     //Listar todas las tareas
 	public function indexAction()
 	{
-		$this->view->message = "hello from test::index";
+		require_once "../models/Task.class.php";
+        $tasks = Task::getAllTasks();
+        require_once "../views/homeView.php";
 	}
 	
     //Crear tarea
