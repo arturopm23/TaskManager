@@ -1,21 +1,20 @@
 <?php
 
-/**
- * Base controller for the application.
- * Add general things in this controller.
- */
+require_once ROOT_PATH . '/app/models/Task.class.php';
 class TaskController extends Controller {
 
+    public function __construct(){
+    }
     //Listar todas las tareas
 	public function indexAction()
 	{
-		require_once "../models/Task.class.php";
-        $tasks = Task::getAllTasks();
-        require_once "../views/homeView.php";
+        $taskModel = new Task();
+		$allTasks = $taskModel->fetchAll();
+        $this->view->allTasks = $allTasks;
 	}
 	
     //Crear tarea
-	public function addAction()
+	/*public function addAction()
 	{
 		require_once "../models/Task.class.php";
         $tasks = Task::addTasks();
@@ -44,5 +43,5 @@ class TaskController extends Controller {
 		require_once "../models/Task.class.php";
         $tasks = Task::infoTasks();
         require_once "../views/info.php";
-	}
+	}*/
 }

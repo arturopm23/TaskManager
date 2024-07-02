@@ -1,0 +1,49 @@
+<?php
+$allTasks = $this->allTasks;
+
+$this->title = 'Me quiero morir :(';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo $this->title; ?></title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+  <div class="container mx-auto mt-10">
+    <table class="min-w-full divide-y divide-gray-700">
+      <thead class="bg-gray-800">
+        <tr>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Id</th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Title</th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Description</th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Status</th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">User</th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Start Date</th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Deadline</th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="bg-gray-800 divide-y divide-gray-700">
+        <?php foreach ($allTasks as $task): ?>
+          <tr class="hover:bg-gray-700">
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300"><?php echo htmlspecialchars($task['id']); ?></td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300"><?php echo htmlspecialchars($task['title']); ?></td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300"><?php echo htmlspecialchars($task['description']); ?></td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300"><?php echo htmlspecialchars($task['status']); ?></td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300"><?php echo htmlspecialchars($task['user']); ?></td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300"><?php echo htmlspecialchars($task['startDate']); ?></td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300"><?php echo htmlspecialchars($task['deadline']); ?></td>
+            <td class="px-6 py-4 whitespace-nowrap text-gray-300">
+              <a href="/edit-task?id=<?php echo $task['id']; ?>" class="text-blue-500 hover:text-blue-700 mr-2">Edit</a>
+              <a href="/delete-task?id=<?php echo $task['id']; ?>" class="text-red-500 hover:text-red-700">Delete</a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

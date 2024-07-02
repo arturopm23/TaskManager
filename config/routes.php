@@ -10,11 +10,12 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
-	'/test' => 'test#index',
-	'/web' => 'application#index',
-	'/home' => 'application#index',
-	'/newTask' => 'application#add',
-	'/updateTask' => 'application#update',
-	'/infoTask' => 'application#info',
-	'/removeTask' => 'application#remove',
-);
+	'/' => 'task#index',
+	'/tasks' => 'task#index',
+	'/task/detail/:id' => 'task#detail',
+	'/task/create' => 'task#create',
+	'/task/update/:id' => 'task#update',
+	'/task/search' => 'task#search',
+	'/task/delete/:id' => 'task#delete',
+	'/test' => 'test#index'
+  );
