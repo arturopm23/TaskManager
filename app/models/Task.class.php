@@ -1,25 +1,31 @@
 <?php
 class Task extends Model {
-    private int $id;
+
+
+    protected array $allTasks;
+    /*private int $id;
     private string $title;
     private string $description;
     private string $status; //Podria hacer un enum, no prometo nada
     private int $idUser;
     private string $startDate; //por ahora se queda en string, veremos luego
-    private string $endDate;
+    private string $endDate;*/
 
 
-    private function __construct(int $id, string $title, string $description, string $status, int $idUser, string $startDate, string $endDate) {
-        $this->id = $id;
-        $this->title = $title;
-        $this->description = $description;
-        $this->status = $status;
-        $this->idUser = $idUser;
-        $this->startDate = $startDate;
-        $this->endDate = $endDate;
+    public function __construct() {
+        $this->loadTasks();
     }
 
-    private function getId() : int {
+    private function loadTasks(){
+        $dataRoute = ROOT_PATH . "\app\data\data.json";
+        $this->allTasks = json_decode(file_get_contents($dataRoute), true) ?? [];
+    }
+
+    public function fetchAll(){
+        return $this->allTasks;
+    }
+
+    /*private function getId() : int {
         return $this->id;
     }
 
@@ -73,6 +79,6 @@ class Task extends Model {
 
     private function setFechaFinal(string $endDate) : void {
         $this->endDate = $endDate;
-    }
+    }*/
 }
 ?>
