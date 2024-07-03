@@ -1,8 +1,10 @@
 <?php
 class Task extends Model {
 
-
     protected array $allTasks;
+    protected int $contadorId = 0;
+    protected string $dataRoute = ROOT_PATH . "\app\data\data.json";
+
     /*private int $id;
     private string $title;
     private string $description;
@@ -23,6 +25,22 @@ class Task extends Model {
 
     public function fetchAll(){
         return $this->allTasks;
+    }
+
+    public function create(array $data){
+        $id = $this->contadorId++;
+        $task = [
+            'id' => $id,
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'status' => $data['status'],
+            'user' => $data['user'],
+            'startDate' => $data['startDate'],
+            'deadline' => $data['deadline']
+        ];
+
+        $this->allTasks[] = $task;
+        file_put_contents($this->dataRoute, json_encode($this->allTasks, JSON_PRETTY_PRINT));
     }
 
     /*private function getId() : int {

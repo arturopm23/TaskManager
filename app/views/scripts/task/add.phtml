@@ -1,0 +1,55 @@
+<?php
+$this->title = 'New Task';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo $this->title; ?></title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+  <div class="container mx-auto mt-10">
+    <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-md">
+      <div class="py-4 px-6">
+        <h2 class="text-2xl font-semibold text-gray-300 mb-6">New Task</h2>
+        <form action="<?php echo WEB_ROOT; ?>/add" method="POST" class="space-y-4">
+          <div>
+            <label for="title" class="block text-sm font-medium text-gray-300">Title</label>
+            <input type="text" id="title" name="title" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 text-gray-300 focus:outline-none focus:border-blue-500" required>
+          </div>
+          <div>
+            <label for="description" class="block text-sm font-medium text-gray-300">Description</label>
+            <textarea id="description" name="description" rows="3" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 text-gray-300 focus:outline-none focus:border-blue-500" required></textarea>
+          </div>
+          <div>
+            <label for="status" class="block text-sm font-medium text-gray-300">Status</label>
+            <select id="status" name="status" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 text-gray-300 focus:outline-none focus:border-blue-500" required>
+              <option value="New">To Do</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+          <div>
+            <label for="user" class="block text-sm font-medium text-gray-300">User</label>
+            <input type="text" id="user" name="user" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 text-gray-300 focus:outline-none focus:border-blue-500" required>
+          </div>
+          <div>
+            <label for="startDate" class="block text-sm font-medium text-gray-300">Start Date</label>
+            <input type="date" id="startDate" name="startDate" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 text-gray-300 focus:outline-none focus:border-blue-500" required>
+          </div>
+          <div>
+            <label for="deadline" class="block text-sm font-medium text-gray-300">Deadline</label>
+            <input type="date" id="deadline" name="deadline" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 text-gray-300 focus:outline-none focus:border-blue-500" required>
+          </div>
+          <div class="flex justify-end">
+            <button type="submit" class="bg-blue-500 text-gray-100 py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Create Task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
