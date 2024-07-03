@@ -11,11 +11,12 @@
  */
 $routes = array(
 	'/' => 'task#index',
+	'/edit' => 'task#index',
+	'/index' => 'task#index',
 	'/tasks' => 'task#index',
-	'/task/detail/:id' => 'task#detail',
-	'/task/create' => 'task#create',
-	'/task/update/:id' => 'task#update',
-	'/task/search' => 'task#search',
-	'/task/delete/:id' => 'task#delete',
+	'/detail/:id' => 'task#detail',
+	'/add' => 'task#add',
+	'/edit/:id' => 'task#edit',
+	'/delete/:id' => 'task#delete',
 	'/test' => 'test#index'
   );
