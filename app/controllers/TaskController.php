@@ -14,15 +14,32 @@ class TaskController extends Controller {
 	}
 	
     //Crear tarea
-	/*public function addAction()
-	{
-		require_once "../models/Task.class.php";
-        $tasks = Task::addTasks();
-        require_once "../views/add.php";
-	}
+	public function addAction() {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $taskModel = new Task();
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $status = $_POST['status'];
+            $user = $_POST['user'];
+            $startDate = $_POST['startDate'];
+            $deadline = $_POST['deadline'];
+
+            $data = [
+                'title' => $title,
+                'description' => $description,
+                'status' => $status,
+                'user' => $user,
+                'startDate' => $startDate,
+                'deadline' => $deadline
+            ];
+
+            $taskModel->create($data);
+            header('Location: ' . WEB_ROOT . '/index');
+            exit;
+        }
 
     //Actualizar tarea
-    public function updateAction()
+    /*public function updateAction()
 	{
 		require_once "../models/Task.class.php";
         $tasks = Task::updateTasks();
@@ -45,3 +62,5 @@ class TaskController extends Controller {
         require_once "../views/info.php";
 	}*/
 }
+}
+?>
