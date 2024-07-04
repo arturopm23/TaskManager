@@ -2,7 +2,6 @@
 class Task extends Model {
 
     protected array $allTasks;
-    protected int $contadorId = 0;
     protected string $dataRoute = ROOT_PATH . "\app\data\data.json";
 
 
@@ -20,7 +19,7 @@ class Task extends Model {
     }
 
     public function create(array $data){
-        $id = $this->contadorId++;
+        $id = count($this->allTasks) + 1;
         $task = [
             'id' => $id,
             'title' => $data['title'],
