@@ -5,14 +5,6 @@ class Task extends Model {
     protected int $contadorId = 0;
     protected string $dataRoute = ROOT_PATH . "\app\data\data.json";
 
-    /*private int $id;
-    private string $title;
-    private string $description;
-    private string $status; //Podria hacer un enum, no prometo nada
-    private int $idUser;
-    private string $startDate; //por ahora se queda en string, veremos luego
-    private string $endDate;*/
-
 
     public function __construct() {
         $this->loadTasks();
@@ -43,60 +35,29 @@ class Task extends Model {
         file_put_contents($this->dataRoute, json_encode($this->allTasks, JSON_PRETTY_PRINT));
     }
 
-    /*private function getId() : int {
-        return $this->id;
+    
+        public function edit(array $data) {
+            foreach ($this->allTasks as &$task) { // Use reference to modify the original array
+                if ($task['id'] == $data['id']) {
+                    $task['title'] = $data['title'];
+                    $task['description'] = $data['description'];
+                    $task['status'] = $data['status'];
+                    $task['user'] = $data['user'];
+                    $task['startDate'] = $data['startDate'];
+                    $task['deadline'] = $data['deadline'];
+                    break; // Exit the loop once the task is found and updated
+                }
+            }
+            file_put_contents($this->dataRoute, json_encode($this->allTasks, JSON_PRETTY_PRINT));
+        }
+    
+        public function fetchTask($id) {
+            foreach ($this->allTasks as $task) {
+                if ($task['id'] == $id) {
+                    return $task;
+                }
+            }
+            return null;
+        }
     }
-
-    private function getTitle() : string {
-        return $this->title;
-    }
-
-    private function getDescription() : string {
-        return $this->description;
-    }
-
-    private function getSatus() : string {
-        return $this->status;
-    }
-
-    private function getIdUser() : int {
-        return $this->idUser;
-    }
-
-    private function getStartdate() : string {
-        return $this->startDate;
-    }
-
-    private function getEndDate() : string {
-        return $this->endDate;
-    }
-
-    private function setId(int $id) : void {
-        $this->id = $id;
-    }
-
-    private function setTitle(string $title) : void {
-        $this->title = $title;
-    }
-
-    private function setDescription(string $description) : void {
-        $this->description = $description;
-    }
-
-    private function setStatus(string $status) : void {
-        $this->status = $status;
-    }
-
-    private function setIdUser(int $idUser) : void {
-        $this->idUser = $idUser;
-    }
-
-    private function setFechaInicio(string $startDate) : void {
-        $this->startDate = $startDate;
-    }
-
-    private function setFechaFinal(string $endDate) : void {
-        $this->endDate = $endDate;
-    }*/
-}
 ?>
