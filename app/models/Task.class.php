@@ -59,5 +59,20 @@ class Task extends Model {
             }
             return null;
         }
+
+    public function delete($id) {
+        $deleted = false;
+        foreach ($this->allTasks as $key => $task) {
+            if ($task['id'] == $id) {
+                unset($this->allTasks[$key]);
+                $deleted = true;
+                break;
+            }
+        }
+        if ($deleted) {
+            file_put_contents($this->dataRoute, json_encode($this->allTasks, JSON_PRETTY_PRINT));
+        }
+        return $deleted;
     }
+}        
 ?>
