@@ -81,22 +81,16 @@ public function editAction() {
     }
 }
 
-
-    //Borrar tarea
-    /*public function deleteAction()
-	{
-		require_once "../models/Task.class.php";
-        $tasks = Task::deleteTasks();
-        require_once "../views/delete.php";
-	}
-
-    //Listar una tarea
-    public function infoAction()
-	{
-		require_once "../models/Task.class.php";
-        $tasks = Task::infoTasks();
-        require_once "../views/info.php";
-	}*/
-
-}
+    // Delete a task
+    public function deleteAction() {
+        $taskModel = new Task();
+        $serverParts = explode('/', $_SERVER['REQUEST_URI']);
+        $taskId = end($serverParts);
+        $taskModel->delete($taskId);
+        New view();
+        $this->view->settings->action = 'index';
+        header('Location: ' . WEB_ROOT . '/index');
+        exit;
+        }    
+    }
 ?>
