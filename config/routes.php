@@ -11,7 +11,6 @@
  */
 $routes = array(
 	'/' => 'task#index',
-	'/edit' => 'task#index',
 	'/index' => 'task#index',
 	'/tasks' => 'task#index',
 	'/detail/:id' => 'task#detail',
